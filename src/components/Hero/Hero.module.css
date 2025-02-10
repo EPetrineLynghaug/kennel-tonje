@@ -1,0 +1,52 @@
+.hero {
+    position: relative;
+    background-image: url('/img/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 65vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;      
+    justify-content: flex-start;  
+    padding: 2rem;                
+  }
+  
+  .overlay {
+    padding: 1rem;
+    border-radius: 10px;
+  
+  }
+  
+  /* Eksempel på tekststiler – tilpass etter behov */
+  .overlay h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Media Query for mobil */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 1rem; /* Mindre padding på små skjermer */
+    }
+    
+    .overlay {
+      padding: 0.75rem; /* Redusert padding for overlay */
+    }
+    
+    .overlay h1 {
+      font-size: 2rem; /* Mindre overskrift på mobil */
+      margin-bottom: 0.5rem;
+    }
+    
+    .overlay p {
+      font-size: 1rem; /* Justert paragrafstørrelse */
+      margin-bottom: 0.5rem;
+    }
+  }
+  
