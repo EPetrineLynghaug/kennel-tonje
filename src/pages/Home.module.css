@@ -1,0 +1,69 @@
+.introContainer {
+    max-width: 400px;       
+    margin: 0 auto;         
+    padding: 20px;          
+    display: flex;
+    flex-direction: column;
+    gap: 20px;              
+  }
+  
+  
+  /* Overskrift */
+  .introHeading {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+
+  .introText {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #555;
+    margin: 0;
+  }
+
+  .introButton {
+    margin-top: -10px;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-self: flex-end;
+  }
+  
+
+  .subHeading {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 0 20px;  
+    font-size: 1.8rem;
+    color: #333;
+ 
+  }
+  
+  /* Desktop/tablet (min-width: 768px) */
+  @media (min-width: 768px) {
+    .introContainer {
+      max-width: 800px;       
+      flex-direction: row;    
+      align-items: flex-end;  
+      gap: 20px;
+      padding: 20px;          
+    }
+    
+   
+    .introTextWrapper {
+      flex: 1;
+    }
+    
+    
+    .introButton {
+     flex-direction: end;
+      
+    }
+    
+    .subHeading {
+      max-width: 450px;       
+      padding: 0 20px;
+    }
+  }
+  
