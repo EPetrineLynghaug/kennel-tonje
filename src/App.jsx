@@ -2,8 +2,7 @@
 import './App.css'
 import Button from '@mui/material/Button';
 import Navbar from './components/Navbar';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+
 
 function App() {
  

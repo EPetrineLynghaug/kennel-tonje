@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" className={styles.appBar}>
+    <AppBar position="static"   sx={{ backgroundColor: "#C8C6C0", padding: "1rem" }} className={styles.appBar}>
       <Toolbar className={styles.toolbar}>
         {/* Logo/Tittel */}
         <Typography
@@ -56,7 +56,7 @@ const Navbar = () => {
         {/* Mobil: Hamburger-ikon */}
         <IconButton
           edge="end"
-          color="inherit"
+          color="black"
           aria-label="toggle menu"
           onClick={handleMenuClick}
           className={styles.mobileMenuButton}
