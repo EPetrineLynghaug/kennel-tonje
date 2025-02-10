@@ -1,23 +1,21 @@
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import './App.css'
-import Button from '@mui/material/Button';
+
 import Navbar from './components/Navbar';
+import Home from './pages/Home';
 
 
 function App() {
- 
-
-  return (
-    <>
+ return (
+   <Router>
     <Navbar />
- <div style={{ padding: '2rem' }}>
-      <h1>Hei, velkommen til Kennel Tonje!</h1>
-      <Button variant="contained" color="primary">
-        Klikk meg
-      </Button>
-    </div>
-    </>
-  )
-}
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
+   </Router>
+ );
+};
 
 export default App

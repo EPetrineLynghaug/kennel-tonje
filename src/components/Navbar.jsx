@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Box from '@mui/material/Box';
 import styles from './Navbar.module.css';
+import logo from "/img/logo.svg";
+
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -23,19 +24,18 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static"   sx={{ backgroundColor: "#C8C6C0", padding: "1rem" }} className={styles.appBar}>
+    <AppBar position="static" sx={{ backgroundColor: "#C8C6C0", padding: "1rem" }} className={styles.appBar}>
       <Toolbar className={styles.toolbar}>
-        {/* Logo/Tittel */}
-        <Typography
-          variant="h6"
-          component={Link}
-          to="/"
-          className={styles.logo}
-        >
-          Tonje Kennelen
-        </Typography>
-
-        {/* Desktop: Standard navigasjonsmeny */}
+        <Box component={Link} to="/" className={styles.logo}>
+          <Box
+            component="img"
+            src={logo}
+            alt="Tonje Kennelen logo"
+            className={styles.logoImage}
+            sx={{ height: 100, width: 100 }}
+          />
+        </Box>
+        {/* Resten av navigasjonen */}
         <Box className={styles.desktopNav}>
           <ul className={styles.menu}>
             <li>
@@ -52,8 +52,6 @@ const Navbar = () => {
             </li>
           </ul>
         </Box>
-
-        {/* Mobil: Hamburger-ikon */}
         <IconButton
           edge="end"
           color="black"
@@ -63,8 +61,6 @@ const Navbar = () => {
         >
           <MenuIcon />
         </IconButton>
-
-        {/* Mobil: Dropdown-meny */}
         <Menu
           id="nav-menu"
           anchorEl={anchorEl}
