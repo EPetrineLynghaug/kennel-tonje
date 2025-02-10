@@ -1,52 +1,55 @@
+/* Mobile-first: Standard for mobil og tablet */
 .hero {
     position: relative;
     background-image: url('/img/hero.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center; 
     background-repeat: no-repeat;
     height: 65vh;
     width: 100%;
     display: flex;
-    align-items: flex-start;      
-    justify-content: flex-start;  
-    padding: 2rem;                
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1rem; 
   }
   
   .overlay {
-    padding: 1rem;
+    padding: 0.75rem;
     border-radius: 10px;
-  
+    color: inherit;
   }
   
-  /* Eksempel på tekststiler – tilpass etter behov */
+  /* Tekststiler for mobil */
   .overlay h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
   }
   
   .overlay p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
   }
   
-  /* Media Query for mobil */
-  @media (max-width: 768px) {
+  /* Media Query for større skjermer (desktop) */
+  @media (min-width: 1024px) {
     .hero {
-      padding: 1rem; /* Mindre padding på små skjermer */
+       
+      height: 77vh;
+      padding: 2rem;
     }
     
     .overlay {
-      padding: 0.75rem; /* Redusert padding for overlay */
+      padding: 1rem;
     }
     
     .overlay h1 {
-      font-size: 2rem; /* Mindre overskrift på mobil */
-      margin-bottom: 0.5rem;
+      font-size: 3rem;
+      margin-bottom: 1rem;
     }
     
     .overlay p {
-      font-size: 1rem; /* Justert paragrafstørrelse */
-      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
     }
   }
   
