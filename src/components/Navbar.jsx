@@ -24,7 +24,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#C8C6C0", padding: "1rem" }} className={styles.appBar}>
+    <AppBar position="static" sx={{ backgroundColor: "#C8C6C0", padding: "10px" }} className={styles.appBar}>
       <Toolbar className={styles.toolbar}>
         <Box component={Link} to="/" className={styles.logo}>
           <Box
