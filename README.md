@@ -1,3 +1,10 @@
+
+<p align="center">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React" width="60" style="margin-right: 1rem;" />
+  <img src="https://vitejs.dev/logo.svg" alt="Vite" width="60" style="margin-right: 1rem;" />
+  <img src="https://mui.com/static/logo.png" alt="Material UI" width="60" />
+</p>
+
 # React + Vite with Material UI (MUI)
 
 This project is a modern web application built with React and Vite, utilizing Material UI (MUI) for its user interface components. It was developed as a side project for an external client.
