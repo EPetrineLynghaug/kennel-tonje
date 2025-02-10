@@ -1,0 +1,59 @@
+.appBar {
+    background-color: #282c34;
+    padding: 1rem;
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    text-decoration: none;
+    color: inherit;
+    font-family: 'Eater', cursive;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  
+  .desktopNav {
+    display: none;
+  }
+  
+  /* Standard menystil for desktop */
+  .menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .menu a:hover {
+    text-decoration: underline;
+  }
+  
+
+  .mobileMenuButton {
+    display: block;
+  }
+  
+  
+  @media (min-width: 600px) {
+ 
+    .desktopNav {
+      display: block 
+    }
+ 
+    .mobileMenuButton {
+      display: none !important;
+    }
+  }
+  
