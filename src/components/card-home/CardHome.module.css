@@ -1,94 +1,112 @@
-/* Container for alle kortene */
+/* Mobile-først oppsett */
 .cardContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  border-radius: 4px;
+  padding: 16px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  margin: 0 10px 20px 10px; 
+}
+
+.title {
+  font-size: 1.4rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.description {
+  visibility: visible;
+  max-height: none;
+  overflow: hidden;
+  transition: visibility 0s, max-height 0.3s ease-out;
+}
+
+.critique {
+  font-size: 0.85rem;
+  color: #444;
+  font-style: italic;
+  line-height: 1.5;
+  margin-top: 15px;
+}
+
+.imageContainer {
+  margin-top: 10px;
+  padding: 0;
+}
+
+.image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Tablet-layout (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .cardContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
     padding: 20px;
   }
-  
-  /* Selve kortet – små, moderne og med rikelig luft */
+
   .card {
-  
-    border-radius: 2px;
-    padding: 16px;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;  
-    margin: 0 auto;
-  
+    flex: 1 1 calc(50% - 20px);
+    max-width: 480px;
+    padding: 18px;
+    margin: 0 20px 20px 20px; 
   }
-  
-  /* Tittel og undertittel */
+
   .title {
-    font-size: 1.4em;
-    color: #222;
-    margin-bottom: 8px;
-   
-  }
-  
-  .subtitle {
-    font-size: 0.9em;
-    color: #555;
-    margin-bottom: 8px;
-   
-  }
-  
-  /* Divider */
-  .divider {
-    border: none;
-    border-top: 1px solid #eee;
-    margin: 12px 0;
-  }
-  
-  /* Brødtekst */
-  .description {
-    font-size: 0.85em;
-    color: #444;
-    line-height: 1.4;
+    font-size: 1.5rem;
     margin-bottom: 12px;
-   
   }
-  
-  /* Kritikk-tekst */
-  .critique {
-    font-size: 0.8em;
-    color: #666;
-    padding: 10px;
-    margin: 12px 0;
-    font-style: italic;
-   
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 8px;
   }
-  
- 
-  .imageContainer {
-    margin-top: auto;       
-    width: 100%;
-    aspect-ratio: 1 / 1;    
-    overflow: hidden;
-    border-radius: 8px;
+}
+
+/* Desktop-layout (1024px og større) */
+@media (min-width: 1024px) {
+  .cardContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    padding: 40px;
   }
-  
-  .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;       
-    border-radius: inherit;
+
+  .card {
+    flex: 1 1 calc(45% - 30px);
+    max-width: 550px;
+    padding: 20px;
+    margin: 0 30px 30px 30px; 
   }
-  
- 
-  @media (min-width: 768px) {
-    .cardContainer {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 24px;
-      justify-content: center;
-    }
-    
-    .card {
-      flex: 1 1 calc(50% - 24px);
-      max-width: 450px;  
-      padding: 20px;
-    }
+
+  .title {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
   }
-  
+
+  .subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+}

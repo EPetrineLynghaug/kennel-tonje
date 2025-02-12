@@ -40,7 +40,7 @@ const CardHome = () => {
           "Helhetsintrykk : 10/10 P, <br></br> 
           Helhetsintrykk : 10/10 P, <br></br> ,
           Helhetsintrykk : 10/10 P, <br></br> ,
-          Helhetsintrykk : 10/10 P, <br></br> "
+          Helhetsintrykk : 10/10 P "
         </p>
         <div className={style.imageContainer}>
           <img 

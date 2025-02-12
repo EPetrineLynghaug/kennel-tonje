@@ -23,16 +23,17 @@ const Home = () => {
               På min nettside kan du finne alt av informasjon om mine hunder, 
               planlagte kull. Lurer du på noe, må du gjerne ta kontakt.
             </p>
+          
           </div>
           <div className={style.introButton}>
             <Button variant="contained" color="primary">
               Les mer
             </Button>
           </div>
-        </section>
         
-        {/* Underoverskrift for kortseksjonen */}
-        <h2 className={style.subHeading}>Året 2024 og 2025</h2>
+        </section>
+          {/* Underoverskrift for kortseksjonen */}
+          <h2 className={style.subHeading}>Året 2024 og 2025</h2>
         
         {/* Kortene */}
         <CardHome />
