@@ -1,9 +1,10 @@
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router";
 
 import './index.css'
 
 import Navbar from './components/Navbar';
+import Footer from './components/footer';
 import Home from './pages/Home';
 
 
@@ -14,7 +15,9 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
     </Routes>
+    <Footer />
    </Router>
+   
  );
 };
 

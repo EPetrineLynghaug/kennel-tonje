@@ -1,0 +1,20 @@
+.footer {
+    background-color: #C8C6C0;
+    color: #000;
+    padding: 2rem 0;
+    margin-top: auto; /* Sørger for at footeren plasseres nederst hvis den brukes med flexbox-layout */
+  }
+  
+  .footerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  @media (min-width: 768px) {
+    .footerContent {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  
