@@ -2,7 +2,6 @@ import style from './CardHome.module.css';
 
 const CardHome = () => {
   return (
-    
     <div className={style.cardContainer}>
       <div className={style.card}>
         <h1 className={style.title}>Utstilling Ølen 2025</h1>
@@ -24,6 +23,7 @@ const CardHome = () => {
             className={style.image} 
             src="../../img/lumi1.jpg" 
             alt="Utstilling Ølen 2025" 
+            loading="lazy"
           />
         </div>
       </div>
@@ -37,16 +37,17 @@ const CardHome = () => {
           Vi nærmer oss klasse to, det blir en spennende reise framover.
         </p>
         <p className={style.critique}>
-          "Helhetsintrykk : 10/10 P, <br></br> 
-          Helhetsintrykk : 10/10 P, <br></br> ,
-          Helhetsintrykk : 10/10 P, <br></br> ,
+          "Helhetsintrykk : 10/10 P, <br /> 
+          Helhetsintrykk : 10/10 P, <br /> 
+          Helhetsintrykk : 10/10 P, <br /> 
           Helhetsintrykk : 10/10 P "
         </p>
         <div className={style.imageContainer}>
           <img 
             className={style.image} 
-            src="../../img/hero.jpg" 
+            src="/img/trening/TeamWork.JPG" 
             alt="LP konkurranse 2024" 
+            loading="lazy"
           />
         </div>
       </div>
