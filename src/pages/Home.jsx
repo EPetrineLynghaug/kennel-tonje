@@ -1,17 +1,14 @@
 import React from 'react';
 import Button from '@mui/material/Button';
 import style from './Home.module.css';
-import Hero from '../components/Hero/Hero'; 
+import Hero from '../components/Hero/Hero';
 import CardHome from '../components/card-home/CardHome';
-import ResponsiveImage from '../components/ResponsiveImage'; // juster stien om nødvendig
 
 const Home = () => {
   return (
     <>
       <Hero />
-      
       <div className={style.pageWrapper}>
-        
         <section className={style.introContainer}>
           <div className={style.introTextWrapper}>
             <h1 className={style.introHeading}>Velkommen</h1>
@@ -27,14 +24,13 @@ const Home = () => {
             </Button>
           </div>
         </section>
-        <h1 className={style.subHeading}>Valper ventes!</h1>
-        <ResponsiveImage 
+        <h2 className={style.subHeading}>Valper ventes</h2>
+        <img 
+          className={style.responsiveImage}
           src="/img/test-parring.png" 
           alt="Test parring" 
         />
-        
         <h2 className={style.subHeading}>Året 2024 og 2025</h2>
-        
         <CardHome />
       </div>
     </>

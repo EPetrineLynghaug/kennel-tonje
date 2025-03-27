@@ -121,4 +121,42 @@
       flex-direction: column;
   
   }
+/* Home.module.css */
+
+/* Mobil-først: Bildet fyller hele bredden på mobil */
+.responsiveImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px 0; /* kun vertikal spacing */
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Anta at hvert kort er maks 480px på tablet */
+  .responsiveImage {
+    max-width: 960px; /* 2 x 480px = 960px */
+    margin: 20px auto;
+  }
+}
+
+/* Desktop (1024px og oppover) */
+@media (min-width: 1024px) {
+  .responsiveImage {
+    /* 2 kort = 2 x 550 = 1100, + 30px gap mellom = 1130px.
+       Men containeren er 1200px med 40px padding på hver side => 1120px innvendig.
+       Vi setter derfor max-width litt under 1120 for å unngå at bildet "spretter" ut. */
+    max-width: 1100px;
+    margin: 20px auto;
+  }
+}
+
+
+
+
+
+
+
+
+
 }
