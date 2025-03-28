@@ -1,27 +1,45 @@
-// DogsPage.jsx
 import React from 'react';
-import { Card, CardMedia, CardContent, CardActions, Typography, Button, Box, Skeleton, Container } from '@mui/material';
-import { Link } from 'react-router';
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  CardActions,
+  Typography,
+  Button,
+  Box,
+  Skeleton,
+  Container
+} from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const squareButtonSx = {
-  borderRadius: 0,
+  borderRadius: '4px',
   textTransform: 'none',
-  fontWeight: 'bold',
+  fontWeight: '500',
+  fontSize: '0.95rem',
   px: 3,
   py: 1,
-  boxShadow: 'none',
-  backgroundColor: '#0057e7',
+  backgroundColor: '#1d1d1d',
+  color: '#fff',
+  transition: 'all 0.3s ease',
   '&:hover': {
-    backgroundColor: '#0041c4'
+    backgroundColor: '#000',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+    transform: 'translateY(-1px)'
   }
 };
 
 const cardSx = {
   width: '100%',
   maxWidth: { xs: 500, md: 600 },
-  boxShadow: 'none',
-  borderRadius: 2,
-  backgroundColor: 'transparent'
+  borderRadius: 3,
+  overflow: 'hidden',
+  boxShadow: '0 6px 20px rgba(0,0,0,0.1)',
+  backgroundColor: '#fff',
+  transition: 'transform 0.3s ease',
+  '&:hover': {
+    transform: 'scale(1.015)'
+  }
 };
 
 const DogCard = () => {
@@ -31,23 +49,22 @@ const DogCard = () => {
         component="img"
         sx={{ height: 300, objectFit: 'cover' }}
         image="/img/utstilling/lumi.PNG"
-        alt="Hund"
+        alt="Lumi"
       />
-      <CardContent sx={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', p: 1 }}>
-        <Typography gutterBottom variant="h5">
+      <CardContent sx={{ px: 3, pt: 2, pb: 0 }}>
+        <Typography gutterBottom variant="h5" component="div" fontWeight={600}>
           Lumi
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary" fontStyle="italic">
           WHAMBAM ROCK YOUR WORLD
         </Typography>
       </CardContent>
-      <CardActions sx={{ justifyContent: 'flex-end', backgroundColor: 'rgba(255, 255, 255, 0.8)', p: 2 }}>
-        {/* Link-komponenten sender oss til "/lumi" */}
-        <Button 
-          size="small" 
-          variant="contained" 
+      <CardActions sx={{ justifyContent: 'flex-end', px: 3, pb: 2 }}>
+        <Button
+          size="small"
+          variant="contained"
           sx={squareButtonSx}
-          component={Link} 
+          component={Link}
           to="/lumi"
         >
           Les mer
@@ -61,15 +78,15 @@ const PlaceholderCard = () => {
   return (
     <Card sx={cardSx}>
       <Skeleton variant="rectangular" height={300} />
-      <CardContent sx={{ backgroundColor: 'rgba(255, 255, 255, 0.8)', p: 2 }}>
-        <Typography gutterBottom variant="h5">
-          Placeholder Tittel
+      <CardContent sx={{ px: 3, pt: 2, pb: 0 }}>
+        <Typography gutterBottom variant="h5" component="div" fontWeight={600}>
+          Kommer snart
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          EN TIL?
+        <Typography variant="body2" color="text.secondary" fontStyle="italic">
+          Mer info på vei
         </Typography>
       </CardContent>
-      <CardActions sx={{ justifyContent: 'flex-end', backgroundColor: 'rgba(255, 255, 255, 0.8)', p: 2 }}>
+      <CardActions sx={{ justifyContent: 'flex-end', px: 3, pb: 2 }}>
         <Button size="small" variant="contained" sx={squareButtonSx}>
           Les mer
         </Button>
@@ -80,13 +97,25 @@ const PlaceholderCard = () => {
 
 const DogsPage = () => {
   return (
-    <Container maxWidth="md">
-      <Box 
-        sx={{ 
-          display: 'grid', 
+    <Container maxWidth="lg" sx={{ py: 6 }}>
+      <Typography
+        variant="h3"
+        sx={{
+          mb: 5,
+          textAlign: 'center',
+          fontWeight: 600,
+          fontSize: { xs: '1.8rem', sm: '2.4rem' },
+          letterSpacing: '-0.5px'
+        }}
+      >
+        Våre Hunder
+      </Typography>
+
+      <Box
+        sx={{
+          display: 'grid',
           gridTemplateColumns: { xs: '1fr', md: 'repeat(2, 1fr)' },
-          gap: 4,
-          p: { xs: 1, sm: 2, md: 3 },
+          gap: { xs: 4, sm: 5, md: 6 },
           justifyItems: 'center'
         }}
       >

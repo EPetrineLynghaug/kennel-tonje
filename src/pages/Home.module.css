@@ -1,162 +1,62 @@
-/* Mobile-først */
-.introContainer {
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.introTextWrapper {
-  flex: none;
-  width: 100%;
+.section {
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 0 20px;
 }
 
 .introHeading {
-  text-align: left;
   font-size: 2rem;
   color: #333;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
 .introText {
-  font-size: 1rem;
-  text-align: left;
+  font-size: 1.1rem;
   color: #555;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-.introButton {
-  margin-top: 20px;
-  align-self: flex-end; 
+  line-height: 1.7;
+  text-align: left;
+  margin-bottom: 30px;
 }
 
 .subHeading {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
   font-size: 1.8rem;
   color: #333;
-  padding: 20px;
-
+  margin: 60px auto 20px;
+  padding: 0 20px;
+  max-width: 1000px;
+  text-align: left;
 }
 
-/* Tablet-layout (768px - 1024px) */
-@media (min-width: 768px) {
-  .introContainer {
-    max-width: 800px;
-    flex-direction: column;
-    align-items: flex-end; 
-    margin: 0 auto;
-    padding: 20px;
-  }
-
-  .introTextWrapper {
-    flex: none;
-    width: 100%;
-  }
-
-  .introHeading {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-  }
-
-  .introText {
-    font-size: 1rem;
-    margin-bottom: 20px;
-    line-height: 1.6;
-  }
-
-  .introButton {
-    margin-top: 20px;
-    align-self: flex-end; 
-  }
-
-  .subHeading {
-    max-width: 800px;
-    flex-direction: column;
-    font-size: 1.6rem;
-    margin: 0 auto;
-    padding: 20px;
-  }
-}
-
-/* Desktop-layout (1024px og større) */
-@media (min-width: 1024px) {
-  .introContainer {
-    max-width: 1200px;
-    margin: 0 auto;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; 
-  }
-
-  .introHeading {
-    font-size: 2rem;
-    margin-bottom: 25px;
-  }
-
-  .introText {
-    font-size: 1.2rem;
-    margin-bottom: 25px;
-    line-height: 1.6;
-  }
-
-  .introButton {
-    margin-top: 25px;
-    align-self: flex-end; 
-  }
-
-  .subHeading {
-    font-size: 2rem;
-   
-      max-width: 1200px;
-      margin: 0 auto;
-   
-      display: flex;
-      flex-direction: column;
-  
-  }
-/* Home.module.css */
-
-/* Mobil-først: Bildet fyller hele bredden på mobil */
 .responsiveImage {
   width: 100%;
   height: auto;
+  border-radius: 10px;
   display: block;
-  margin: 20px 0; /* kun vertikal spacing */
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Tablet (768px - 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  /* Anta at hvert kort er maks 480px på tablet */
-  .responsiveImage {
-    max-width: 960px; /* 2 x 480px = 960px */
-    margin: 20px auto;
-  }
+.introButton {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
 }
 
-/* Desktop (1024px og oppover) */
-@media (min-width: 1024px) {
-  .responsiveImage {
-    /* 2 kort = 2 x 550 = 1100, + 30px gap mellom = 1130px.
-       Men containeren er 1200px med 40px padding på hver side => 1120px innvendig.
-       Vi setter derfor max-width litt under 1120 for å unngå at bildet "spretter" ut. */
-    max-width: 1100px;
-    margin: 20px auto;
-  }
+.styledButton {
+  text-transform: none;
+  font-weight: 500;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #1d1d1d;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: none;
 }
 
-
-
-
-
-
-
-
-
+.styledButton:hover {
+  background-color: black;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
 }
