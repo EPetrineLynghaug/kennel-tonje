@@ -5,6 +5,23 @@ import Hero from '../components/Hero/Hero';
 import CardHome from '../components/card-home/CardHome';
 import { Link } from 'react-router-dom';
 
+const squareButtonSx = {
+  borderRadius: '4px',
+  textTransform: 'none',
+  fontWeight: '500',
+  fontSize: '0.95rem',
+  px: 3,
+  py: 1,
+  backgroundColor: '#1d1d1d',
+  color: '#fff',
+  transition: 'all 0.3s ease',
+  '&:hover': {
+    backgroundColor: '#000',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+    transform: 'translateY(-1px)'
+  }
+};
+
 const Home = () => {
   return (
     <>
@@ -13,7 +30,7 @@ const Home = () => {
       <div className={style.pageWrapper}>
 
         {/* Velkommen */}
-        <section className={style.section}>
+        <section className={`${style.section} ${style.sectionTight}`}>
           <h1 className={style.introHeading}>Velkommen</h1>
           <p className={style.introText}>
             Jeg driver en liten kennel like utenfor Bergen. 
@@ -30,10 +47,11 @@ const Home = () => {
             src="/img/test-parring.png" 
             alt="Valper ventes plakat" 
           />
-          <div className={style.introButton}>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '24px' }}>
             <Button
+              size="small"
               variant="contained"
-              className={style.styledButton}
+              sx={squareButtonSx}
               component={Link}
               to="/valper"
             >
@@ -42,14 +60,20 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Kortene – skal vises som før */}
-        <h2 className={style.subHeading}>Året 2024 og 2025</h2>
+        {/* Året 2024 og 2025 + kort */}
+        <section className={style.section}>
+  <h2 className={style.subHeading}>Året 2024 og 2025</h2>
+</section>
+
+        {/* Kortene */}
         <div className={style.cardStack}>
           <CardHome />
         </div>
-        
+
       </div>
     </>
+
+     
   );
 };
 

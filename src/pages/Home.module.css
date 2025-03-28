@@ -1,13 +1,37 @@
+.pageWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .section {
   max-width: 1000px;
-  margin: 80px auto;
+  margin: 100px auto 80px;
   padding: 0 20px;
+}
+
+.sectionLast {
+  max-width: 1000px;
+  margin: 140px auto 120px; /* ekstra luft nederst */
+  padding: 0 20px;
+}
+
+/* ✅ Ny klasse for å flytte "Velkommen" opp */
+.sectionTight {
+  max-width: 1000px;
+  margin: 40px auto 80px;
+  padding: 0 20px;
+}
+
+/* ✅ Ny klasse for å skyve "2024 og 2025" ned */
+.sectionPushDown {
+  margin-top: 180px;
 }
 
 .introHeading {
   font-size: 2rem;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: left;
 }
 
@@ -16,13 +40,13 @@
   color: #555;
   line-height: 1.7;
   text-align: left;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .subHeading {
   font-size: 1.8rem;
   color: #333;
-  margin: 60px auto 20px;
+  margin: 80px auto 30px;
   padding: 0 20px;
   max-width: 1000px;
   text-align: left;
@@ -33,14 +57,14 @@
   height: auto;
   border-radius: 10px;
   display: block;
-  margin-bottom: 24px;
+  margin-bottom: 36px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .introButton {
   display: flex;
   justify-content: flex-start;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .styledButton {
@@ -59,4 +83,14 @@
   background-color: black;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transform: translateY(-1px);
+}
+
+.cardStack {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-top: 40px;
+}
+.sectionPushDown {
+  margin-bottom: 5px; /* ØKT fra 100px til 160px */
 }
