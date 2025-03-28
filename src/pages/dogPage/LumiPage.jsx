@@ -4,9 +4,8 @@ import {
   Container,
   Typography,
   Box,
-  Button,
   IconButton,
-  Grid
+  Tooltip
 } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -16,124 +15,151 @@ const carouselImages = [
   "/img/utstilling/lumi.PNG",
   "/img/trening/IMG_5710%203.JPG",
   "/img/lumi1.jpg",
-  "/img/oversikt-familie.png" // Nytt bilde lagt til karusellen
+  "/img/utstilling/lumi-rosetter.jpg",
+  "/img/utstilling/ringenKnarrvik.jpg",
+  "/img/oversikt-familie.png"
 ];
 
 const getImageStyles = (index) => {
   let styles = {
     width: '100%',
     height: '100%',
-    display: 'block'
+    display: 'block',
+    objectFit: 'cover',
+    objectPosition: 'center'
   };
 
-  if (index === 0) {
+  if (index === 1 || index === 2) {
+    styles.objectFit = 'contain';
+    styles.backgroundColor = '#000';
+  }
+
+  if (index === 3) {
+    styles.objectFit = 'cover';
+    styles.objectPosition = 'center 30%';
+  }
+
+  if (index === 4) {
     styles.objectFit = 'cover';
     styles.objectPosition = 'center';
-  } else if (index === 1) {
-    styles.objectFit = 'contain';
-    styles.objectPosition = 'center top';
-  } else if (index === 2) {
-    styles.objectFit = 'contain';
-    styles.objectPosition = 'center';
-    styles.transform = 'scale(0.9)';
-  } else if (index === 3) {
-    // Spesialstil for oversiktsbildet slik at det ikke tar overhånd
-    styles.objectFit = 'contain';
-    styles.objectPosition = 'center';
-    styles.padding = '10px';
+    styles.transform = 'scale(1.1)';
   }
+
   return styles;
 };
 
 const Carousel = () => {
   const [current, setCurrent] = useState(0);
+  const totalSlides = carouselImages.length;
 
   const prevSlide = () => {
-    setCurrent(current === 0 ? carouselImages.length - 1 : current - 1);
+    setCurrent(current === 0 ? totalSlides - 1 : current - 1);
   };
 
   const nextSlide = () => {
-    setCurrent(current === carouselImages.length - 1 ? 0 : current + 1);
-  };
-
-  const buttonStyles = {
-    position: 'absolute',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    borderRadius: '50%',
-    border: 'none',
-    boxShadow: '0px 4px 8px rgba(0,0,0,0.3)',
-    zIndex: 1,
-    transition: 'all 0.3s ease',
-    color: 'white',
-    padding: '8px',
-    '&:hover': {
-      transform: 'translateY(-50%) scale(1.2)',
-      backgroundColor: 'rgba(0,0,0,0.7)',
-      boxShadow: '0px 6px 12px rgba(0,0,0,0.4)'
-    }
+    setCurrent(current === totalSlides - 1 ? 0 : current + 1);
   };
 
   return (
-    <Box
-      sx={{
-        position: 'relative',
-        width: '100%',
-        overflow: 'hidden',
-        height: { xs: '300px', sm: '350px', md: '450px' }
-      }}
-    >
-      <Box 
-        component="img"
-        src={carouselImages[current]}
-        alt={`Slide ${current + 1}`}
-        loading="lazy"
-        sx={getImageStyles(current)}
-      />
-      <IconButton 
-        onClick={prevSlide}
+    <>
+      <Box
         sx={{
-          ...buttonStyles,
-          left: '10px'
+          position: 'relative',
+          width: '100%',
+          height: { xs: '250px', sm: '350px', md: '450px' },
+          overflow: 'hidden',
+          backgroundColor: '#000',
+          borderRadius: '8px'
         }}
       >
-        <ArrowBackIosNewIcon />
-      </IconButton>
-      <IconButton 
-        onClick={nextSlide}
+        {carouselImages.map((img, index) => (
+          <Box
+            key={index}
+            component="img"
+            src={img}
+            loading="lazy"
+            alt={`Slide ${index + 1}`}
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              opacity: index === current ? 1 : 0,
+              transition: 'opacity 0.6s ease-in-out',
+              zIndex: index === current ? 1 : 0,
+              ...getImageStyles(index)
+            }}
+          />
+        ))}
+
+        <IconButton
+          onClick={prevSlide}
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '10px',
+            transform: 'translateY(-50%)',
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            color: '#fff',
+            zIndex: 2,
+            borderRadius: '50%',
+            '&:hover': {
+              backgroundColor: 'rgba(0,0,0,0.8)',
+              transform: 'translateY(-50%) scale(1.1)'
+            }
+          }}
+        >
+          <ArrowBackIosNewIcon />
+        </IconButton>
+
+        <IconButton
+          onClick={nextSlide}
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            right: '10px',
+            transform: 'translateY(-50%)',
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            color: '#fff',
+            zIndex: 2,
+            borderRadius: '50%',
+            '&:hover': {
+              backgroundColor: 'rgba(0,0,0,0.8)',
+              transform: 'translateY(-50%) scale(1.1)'
+            }
+          }}
+        >
+          <ArrowForwardIosIcon />
+        </IconButton>
+      </Box>
+
+      {/* Dot-indikator under karusellen */}
+      <Box
         sx={{
-          ...buttonStyles,
-          right: '10px'
-        }}
-      >
-        <ArrowForwardIosIcon />
-      </IconButton>
-      <Box 
-        sx={{
-          position: 'absolute',
-          bottom: 10,
-          left: '50%',
-          transform: 'translateX(-50%)',
+          mt: 2,
           display: 'flex',
+          justifyContent: 'center',
           gap: '10px'
         }}
       >
         {carouselImages.map((_, index) => (
-          <Box 
+          <Box
             key={index}
             onClick={() => setCurrent(index)}
             sx={{
-              height: 10,
-              width: 10,
+              width: '12px',
+              height: '12px',
               borderRadius: '50%',
-              backgroundColor: index === current ? 'black' : 'gray',
-              cursor: 'pointer'
+              border: '2px solid black',
+              backgroundColor: index === current ? 'black' : 'transparent',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease'
             }}
           />
         ))}
       </Box>
-    </Box>
+    </>
   );
 };
 
@@ -145,7 +171,7 @@ const LumiPage = () => {
     "CACIB",
     "BIM - 1",
     "AAK1: 4",
-    "Ex -11 totalt",
+    "Ex -11 totalt"
   ];
 
   const lpResults = [
@@ -154,59 +180,101 @@ const LumiPage = () => {
     "3 plass: 5"
   ];
 
-  const dnaPanelItems = [
-    "Dna panel fritt",
-    "full hale",
-    "HD: AA",
-    "AD: 00",
-    "øyelyst uten merknader",
-    "Mdr1 fri"
+  const dogFacts = [
+    "Date of Birth: 10.10.20",
+    "Long tail",
+    "Eyes Cleared: 2023",
+    "HFS4, CEA, PRA: Clear",
+    "MDR1: +/- | DM: Clear",
+    "Hips: A/A | Elbows: 0/0",
+    "Full Dentition | Scissors Bite",
+    "Hight: 50 cm | Weight: 22 kg"
   ];
-
-  const dnaPanelText = `• ${dnaPanelItems.join(' • ')} •`;
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      {/* Legger til padding-bottom for å gi plass under knappen */}
-      <Container maxWidth="md" sx={{ mt: 4, flexGrow: 1, pb: 4 }}>
-        <Carousel />
+      <Container maxWidth="md" sx={{ position: 'relative', mt: 4 }}>
+        {/* Tilbake-knapp */}
+        <Tooltip title="Tilbake til forsiden" arrow>
+          <IconButton
+            onClick={() => navigate("/")}
+            sx={{
+              position: 'absolute',
+              top: { xs: '20px', sm: '80px' },
+              left: { xs: '24px', sm: '-140px' },
+              backgroundColor: 'rgba(0,0,0,0.6)',
+              color: '#fff',
+              p: '10px',
+              zIndex: 10,
+              borderRadius: '50%',
+              fontSize: '1.4rem',
+              transition: 'all 0.2s ease',
+              '&:hover': {
+                backgroundColor: 'rgba(0,0,0,0.85)',
+                transform: 'scale(1.15)'
+              }
+            }}
+          >
+            <ArrowBackIosNewIcon fontSize="medium" />
+          </IconButton>
+        </Tooltip>
 
+        <Carousel />
+      </Container>
+
+      <Container maxWidth="md" sx={{ flexGrow: 1, pb: 6 }}>
         <Typography
           variant="h2"
           sx={{
             mt: 4,
-            fontSize: { xs: '1.8rem', md: '2.4rem' },
+            fontSize: { xs: '1.3rem', sm: '1.5rem', md: '2.2rem' },
             textAlign: 'center',
             textTransform: 'uppercase',
+            mx: 'auto',
+            px: 2,
             whiteSpace: 'nowrap',
-            mx: 'auto'
+            overflow: 'hidden',
+            textOverflow: 'ellipsis'
           }}
         >
           Lumi - whambam Rock your world
         </Typography>
 
-        <Typography
-          variant="body1"
+        <Box
           sx={{
-            textAlign: 'center',
-            mt: 1,
-            fontSize: { xs: '0.9rem', md: '1rem' }
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            mt: 3,
+            gap: 1
           }}
         >
-          {dnaPanelText}
-        </Typography>
+          {dogFacts.map((fact, index) => (
+            <Typography
+              key={index}
+              variant="body2"
+              sx={{
+                textAlign: 'center',
+                fontSize: { xs: '0.95rem', sm: '1rem' }
+              }}
+            >
+              - {fact} -
+            </Typography>
+          ))}
+        </Box>
 
-        {/* Resultatlister for utstilling og LP med grid-layout */}
         <Box
           sx={{
             display: 'grid',
             gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
             gap: 4,
-            mt: 4
+            mt: 6,
+            mb: 6,
+            px: { xs: 1, sm: 2, md: 0 }
           }}
         >
-          <Box sx={{ p: 3 }}>
-            <Typography variant="h6" sx={{ mb: 2, textAlign: 'left' }}>
+          <Box sx={{ p: { xs: 2, md: 3 }, border: '1px solid #eee', borderRadius: '8px' }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>
               Resultater utstilling
             </Typography>
             {exhibitionResults.map((item, index) => (
@@ -216,8 +284,8 @@ const LumiPage = () => {
               </Box>
             ))}
           </Box>
-          <Box sx={{ p: 3 }}>
-            <Typography variant="h6" sx={{ mb: 2, textAlign: 'left' }}>
+          <Box sx={{ p: { xs: 2, md: 3 }, border: '1px solid #eee', borderRadius: '8px' }}>
+            <Typography variant="h6" sx={{ mb: 2 }}>
               Resultater LP
             </Typography>
             {lpResults.map((item, index) => (
@@ -229,16 +297,11 @@ const LumiPage = () => {
           </Box>
         </Box>
 
-        {/* Ny beskrivelsestekst */}
         <Typography variant="body1" sx={{ mt: 4, lineHeight: 1.6 }}>
-          Lumi som hun heter her, er impotert fra Sverige. Hun er en fantastisk familiehund på 3 år. Et godt eksemplar på en all around hund som både brukes til utstilling, lydighet og en fantastisk venn for barna. Hun er vokst opp med tvillinger, så hun er godt vant med barn.
+          Lumi som hun heter her, er importert fra Sverige. Hun er en fantastisk familiehund på 3 år. Et godt eksemplar på en all around hund som både brukes til utstilling, lydighet og en fantastisk venn for barna. Hun er vokst opp med tvillinger, så hun er godt vant med barn.
           <br /><br />
           Personligheten er veldig happy go lucky, hun smiler fra øre til øre bokstaveligtalt og er en god følgesvenn. Som australian shepherd er hun en aktiv hund som elsker å trene i flere timer, sier aldri neitakk til en tur eller å leke med barna.
         </Typography>
-
-        <Button variant="contained" sx={{ mt: 2 }} onClick={() => navigate(-1)}>
-          Tilbake
-        </Button>
       </Container>
     </Box>
   );
