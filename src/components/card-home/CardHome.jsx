@@ -51,6 +51,27 @@ const CardHome = () => {
           />
         </div>
       </div>
+
+      {/* Nytt placeholder-kort */}
+      <div className={style.card}>
+        <h1 className={style.title}>Placeholder Title</h1>
+        <span className={style.subtitle}>Placeholder Subtitle</span>
+        <hr className={style.divider} />
+        <p className={style.description}>
+          Dette er en placeholder-beskrivelse for å demonstrere hvordan kortene plasseres ved siden av hverandre.
+        </p>
+        <p className={style.critique}>
+          Placeholder-kritikk: Ingen evaluering tilgjengelig ennå.
+        </p>
+        <div className={style.imageContainer}>
+          <img 
+            className={style.image} 
+            src="https://via.placeholder.com/550x300" 
+            alt="Placeholder Image" 
+            loading="lazy"
+          />
+        </div>
+      </div>
     </div>
   );
 };
